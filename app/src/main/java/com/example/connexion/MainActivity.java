@@ -1,17 +1,17 @@
-package com.example.connexion;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.connexion;//package com.example.connexion;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.app.Activity;
+import android.content.Intent;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button startBtn = (Button) findViewById(R.id.sendEmail);
         startBtn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View view) {
                 sendEmail();
             }
         });
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
             finish();
-            Log.i("Finished sending email...", "");
+            Log.i("Finished sending email...", "OK");
         } catch (android.content.ActivityNotFoundException ex) {
             Toast.makeText(MainActivity.this, "There is no email client installed.", Toast.LENGTH_SHORT).show();
         }
